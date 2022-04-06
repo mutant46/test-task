@@ -35,6 +35,14 @@ const Index = () => {
     }
   };
 
+  React.useEffect(() => {
+    const data = window.localStorage.getItem("data");
+    if (data) {
+      setValues(JSON.parse(data));
+      setStatus(false);
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     for (let key of Object.values(values)) {
